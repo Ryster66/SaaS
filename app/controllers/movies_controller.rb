@@ -39,6 +39,6 @@ class MoviesController < ApplicationController
   end
 
 	def sort
-		 Movie.find(:all, :order => 'title')
+		 Movie.find(:all, :order => 'Movie Title')
 	end
 end
