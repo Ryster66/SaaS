@@ -41,5 +41,4 @@ class MoviesController < ApplicationController
 	def sort
 		 Movie.find(:all, :order => 'column_name_to_sort_on')
 	end
-	helper_method:sort_movie_path
 end
