@@ -3,4 +3,7 @@ module MoviesHelper
   def oddness(count)
     count.odd? ?  "odd" :  "even"
   end
+	def sortable(column)
+		hilite = column == sort_column ? "current"
+	end	
 end
