@@ -39,6 +39,6 @@ class MoviesController < ApplicationController
   end
 
 	def sort
-		 Movie.find(:all, :order => 'column_name_to_sort_on')
+		 Movie.find(:all, :order => 'title')
 	end
 end
