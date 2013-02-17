@@ -15,5 +15,6 @@
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
+	 Movie.find(:all, :order => 'column_name_to_sort_on')
 
 = link_to 'Add new movie', new_movie_path
