@@ -42,5 +42,4 @@ class MoviesController < ApplicationController
 		flash[:notice] = "#{@movie.title} was successfully created."
 		Movie.find(:all, :order => 'title')
 	end
-	helper_method: sort_movie_path
 end
