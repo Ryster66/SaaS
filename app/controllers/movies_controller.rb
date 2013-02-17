@@ -38,4 +38,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+	def sort
+		 Movie.find(:all, :order => 'column_name_to_sort_on')
+	end
 end
