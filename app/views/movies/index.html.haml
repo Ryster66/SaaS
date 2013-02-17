@@ -4,8 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
-	= Movie.find(:all, :order => 'column_name_to_sort_on')
+      %th= link_to "Movie Title", movie_path(movie)
       %th Rating
       %th Release Date
       %th More Info
