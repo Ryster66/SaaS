@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
 
+  help_method :is_sorted
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
@@ -8,7 +9,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.order(params[:sort])
+    @movies = Movie.order(is_sorted)
   end
 
   def new
@@ -39,4 +40,8 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end	
+
+	def is_sorted
+		params[:sort] || "title"
+	end
 end
