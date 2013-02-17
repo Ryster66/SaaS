@@ -4,9 +4,9 @@
 %table#movies
   %thead
     %tr
-      %th{:class => hilite("title")}= sortable "Movie Title", "title"
+      %th= link_to 'Movie Title', :sort => "title"
       %th Rating
-      %th{:class => hilite("title")}= sortable "Release Date", "release_date"
+      %th= link_to 'Release Date', :sort => "release_date"
       %th More Info
   %tbody
     - @movies.each do |movie|
@@ -18,3 +18,4 @@
 
 = link_to 'Add new movie', new_movie_path
 
+-# {:class => hilite("title")}= sortable "Movie Title", "title"
