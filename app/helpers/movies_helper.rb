@@ -3,8 +3,7 @@ module MoviesHelper
   def oddness(count)
     count.odd? ?  "odd" :  "even"
   end
-	def sortable(column, title = nil)
-		title ||= column.titleize
+	def sortable(column, title)
 		hilite = column == sort_column ? "current"
 		link_to title, :sort => column
 	end	
