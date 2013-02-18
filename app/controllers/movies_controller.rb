@@ -1,15 +1,17 @@
 class MoviesController < ApplicationController
 
-  help_method :is_sorted
+  helper_method :is_sorted
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
-    # will render app/views/movies/show.<extension> by default
+    # will  app/views/movies/show.<extension> by default
 		
   end
 
   def index
     @movies = Movie.order(is_sorted)
+		@background1 = nil
+		@background2 = nil
   end
 
   def new

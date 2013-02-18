@@ -6,7 +6,12 @@ module MoviesHelper
 
 	def sortable(column, name = nil)
 		name ||= column.titleize
-		hilite = column == sort_column ? "current" : nil
-		link_to name, :sort => column
+		if(column == is_sorted && column == "Movie Name")
+			@background1 = "hilite"
+		end
+		if(column == is_sorted && column == "Release Date")
+			@background2 = "hilite"
+		end
+		link_to name, {:sort => column}
 	end	
 end
