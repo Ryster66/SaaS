@@ -9,9 +9,19 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.order(is_sorted)
-		@background1 = nil
-		@background2 = nil
+		#@all_ratings = Movie.ratings
+		#if not params.has_keys? "ratings"
+    	#@movies = Movie.order(is_sorted).find_by_rating(params["ratings"].keys)
+		#else
+			@movies = Movie.order(is_sorted)
+		#end
+
+		if("title" == is_sorted)
+			@background1 = "hilite"
+		end
+		if("release_date" == is_sorted)
+			@background2 = "hilite"
+		end
   end
 
   def new
