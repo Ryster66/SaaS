@@ -5,7 +5,7 @@
   Include: 
   - @all_ratings.each do |rating|
     = rating 
-    = check_box_tag "ratings[#{rating}]", 1, "checked", :id => "ratings_#{rating}"
+    = check_box_tag "ratings[#{rating}]", 1, "checked ratings.include?(rating)", :id => "ratings_#{rating}"
   = submit_tag 'Refresh', :id => "ratings_submit"
 
 %table#movies
@@ -25,4 +25,4 @@
 
 = link_to 'Add new movie', new_movie_path
 
--# {:class => hilite("title")}= sortable "Movie Title", "title"
+

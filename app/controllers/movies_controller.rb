@@ -9,16 +9,26 @@ class MoviesController < ApplicationController
   	end
 
   	def index
-		@checked = true;
-		@all_ratings = Movie.ratings
-		@movies = Movie.order(is_sorted).find_all_by_rating(params["ratings"].keys)
-
 		if("title" == is_sorted)
 			@background1 = "hilite"
 		end
 		if("release_date" == is_sorted)
 			@background2 = "hilite"
 		end
+		@all_ratings = Movie.ratings
+		@checked = true;
+		newRatings = Hash.new()
+		if(params["ratings"] == nil)
+			@all_ratings.map do |rate|
+				newRatings.store(rate, 1)
+			end
+			params["ratings"] = newRatings			
+		end		
+		if(session["ratings"] != params["ratings"])
+			session["ratings"] = params["ratings"]
+		end		
+		@movies = Movie.order(is_sorted).find_all_by_rating(session["ratings"].keys || params["ratings"].keys || @all_ratings)
+		
   	end
 
 	def new
@@ -51,6 +61,6 @@ class MoviesController < ApplicationController
   	end	
 		
 	def is_sorted
-		params[:sort] || "title"
+		params[:sort] || session[:sort] || "title"		
 	end
 end
