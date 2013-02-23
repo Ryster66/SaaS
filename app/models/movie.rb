@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-	#def self.ratings		
-		#return @all_ratings = @movies.collect {|record| record[:rating]}.uniq
-	#end
+	def self.ratings		
+		return @all_ratings = ['G','PG','PG-13','R']
+	end
 end
